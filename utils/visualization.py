@@ -34,33 +34,28 @@ class Visualizer:
     def plot_neural_network_architecture(input_size=3, hidden_size=8, output_size=1):
         """Create neural network architecture visualization"""
         dot = Digraph(comment='Neural Network Architecture')
-        dot.attr(rankdir='LR')  # Left to right layout
+        dot.attr(rankdir='LR')  
 
-        # Input layer
         with dot.subgraph(name='cluster_input') as c:
             c.attr(label='Input Layer')
             for i in range(input_size):
                 c.node(f'i{i}', f'Input {i+1}')
 
-        # Hidden layer
         with dot.subgraph(name='cluster_hidden') as c:
             c.attr(label='Hidden Layer')
             for i in range(hidden_size):
                 c.node(f'h{i}', f'Hidden {i+1}')
 
-        # Output layer
         with dot.subgraph(name='cluster_output') as c:
             c.attr(label='Output Layer')
             c.node('o0', 'Sales')
 
-        # Add connections
         for i in range(input_size):
             for h in range(hidden_size):
                 dot.edge(f'i{i}', f'h{h}')
         for h in range(hidden_size):
             dot.edge(f'h{h}', 'o0')
 
-        # Save the diagram
         dot.render('static/images/nn_architecture', format='png', cleanup=True)
 
     @staticmethod

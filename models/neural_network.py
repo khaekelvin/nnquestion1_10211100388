@@ -6,8 +6,7 @@ class NeuralNetwork:
         self.hidden_size = hidden_size
         self.output_size = output_size
         self.learning_rate = learning_rate
-        
-        # Initialize weights and biases
+                
         self.W1 = np.random.randn(self.input_size, self.hidden_size) * 0.01
         self.b1 = np.zeros((1, self.hidden_size))
         self.W2 = np.random.randn(self.hidden_size, self.output_size) * 0.01
@@ -19,31 +18,26 @@ class NeuralNetwork:
     def relu_derivative(self, Z):
         return Z > 0
 
-    def forward(self, X):
-        # Hidden layer
+    def forward(self, X):        
         self.Z1 = np.dot(X, self.W1) + self.b1
         self.A1 = self.relu(self.Z1)
-        
-        # Output layer
+                
         self.Z2 = np.dot(self.A1, self.W2) + self.b2
-        self.A2 = self.Z2  # Linear activation for regression
+        self.A2 = self.Z2 
         
         return self.A2
 
     def backward(self, X, y, output):
         m = X.shape[0]
-        
-        # Output layer gradients
+                
         dZ2 = output - y
         dW2 = (1/m) * np.dot(self.A1.T, dZ2)
         db2 = (1/m) * np.sum(dZ2, axis=0, keepdims=True)
-        
-        # Hidden layer gradients
+                
         dZ1 = np.dot(dZ2, self.W2.T) * self.relu_derivative(self.Z1)
         dW1 = (1/m) * np.dot(X.T, dZ1)
         db1 = (1/m) * np.sum(dZ1, axis=0, keepdims=True)
-        
-        # Update parameters
+                
         self.W2 -= self.learning_rate * dW2
         self.b2 -= self.learning_rate * db2
         self.W1 -= self.learning_rate * dW1
@@ -51,15 +45,12 @@ class NeuralNetwork:
 
     def train(self, X, y, epochs=1000, verbose=True):
         losses = []
-        for epoch in range(epochs):
-            # Forward pass
+        for epoch in range(epochs):            
             output = self.forward(X)
-            
-            # Compute loss
+                        
             loss = np.mean((output - y) ** 2)
             losses.append(loss)
-            
-            # Backward pass
+                        
             self.backward(X, y, output)
             
             if verbose and epoch % 100 == 0:

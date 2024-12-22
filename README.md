@@ -1,7 +1,7 @@
 # Neural Network Sales Prediction Model
 
-**Name:** [Your Name]
-**Index Number:** [Your Index Number]
+**Name:** Kelvin Sungzie Duobu
+**Index Number:** 10211100388
 
 ## Project Overview
 This project implements a neural network from scratch to predict sales based on advertising expenses in different media channels (TV, Radio, Newspaper). The model is deployed as a web application using Flask.
@@ -14,8 +14,8 @@ This project implements a neural network from scratch to predict sales based on 
 
 ## Installation
 ```bash
-git clone https://github.com/[username]/nnquestion1_[index_number]
-cd nnquestion1_[index_number]
+git clone https://github.com/khaekelvin/nnquestion1_10211100388
+cd nnquestion1_10211100388
 pip install -r requirements.txt
 ```
 
@@ -27,9 +27,6 @@ python app.py
 2. Open your browser and navigate to `http://localhost:5000`
 3. Enter advertising expenses to get sales predictions
 
-## Neural Network Architecture
-![Neural Network Architecture](static/images/nn_architecture.png)
-
 ## Model Performance
 - Training Accuracy: XX%
 - Validation Accuracy: XX%
@@ -40,6 +37,3 @@ python app.py
 - NumPy
 - Flask
 - Custom Neural Network Implementation
-
-## License
-MIT License
