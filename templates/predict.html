@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="prediction-container">
+    <div class="input-summary">
+        <h2>Input Values</h2>
+        <table class="input-table">
+            <tr>
+                <th>TV Advertising:</th>
+                <td>${{ "%.2f"|format(input_data.TV) }}</td>
+            </tr>
+            <tr>
+                <th>Radio Advertising:</th>
+                <td>${{ "%.2f"|format(input_data.Radio) }}</td>
+            </tr>
+            <tr>
+                <th>Newspaper Advertising:</th>
+                <td>${{ "%.2f"|format(input_data.Newspaper) }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="prediction-result">
+        <h2>Predicted Sales</h2>
+        <div class="prediction-value">{{ prediction }}</div>
+    </div>
+
+    <div class="actions">
+        <a href="{{ url_for('home') }}" class="button">Make Another Prediction</a>
+    </div>
+</div>
+{% endblock %}
