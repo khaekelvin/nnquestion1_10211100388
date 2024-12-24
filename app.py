@@ -7,15 +7,26 @@ from utils.data_preprocessing import preprocess_input
 
 app = Flask(__name__)
 
-model_path = 'models/saved_models/trained_model.pkl'
-if os.path.getsize(model_path) > 0: 
-    with open(model_path, 'rb') as f:
-        try:
-            model = pickle.load(f)
-        except EOFError:
-            print("Error: The model file is empty or corrupted.")
-else:
-    print("Error: The model file is empty.")
+def ensure_model_exists():
+    if not os.path.exists('models/saved_models/trained_model.pkl'):
+        from train_model import train_and_save_model
+        train_and_save_model()
+
+@app.before_first_request
+def initialize():
+    ensure_model_exists()
+
+def load_model():
+    model_path = 'models/saved_models/trained_model.pkl'
+    try:
+        with open(model_path, 'rb') as f:
+            return pickle.load(f)
+    except (FileNotFoundError, EOFError):
+        # Train a new model if file doesn't exist
+        from train_model import train_and_save_model
+        return train_and_save_model()
+
+model = load_model()
 
 @app.route('/')
 def home():
