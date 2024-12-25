@@ -44,3 +44,23 @@ python app.py
 - NumPy
 - Flask
 - Custom Neural Network Implementation
+
+
+## Model Prediction
+
+### Step 1
+<img width="1678" alt="Screenshot 2024-12-25 at 9 49 38 PM" src="https://github.com/user-attachments/assets/6ded2b46-1dea-4e6d-a4bc-c05a7f1e02bd" />
+
+
+### Step 2
+<img width="1680" alt="Screenshot 2024-12-25 at 9 49 56 PM" src="https://github.com/user-attachments/assets/07e4c2a4-d7bf-4f1b-8bc4-ff79ff78e194" />
+
+
+
+### Step 3
+<img width="1680" alt="Screenshot 2024-12-25 at 9 50 08 PM" src="https://github.com/user-attachments/assets/ef39ea85-7102-4caa-bb0d-f59d025fc10e" />
+
+
+
+
+
