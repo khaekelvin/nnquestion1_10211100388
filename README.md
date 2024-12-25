@@ -32,6 +32,13 @@ python app.py
 - Validation Accuracy: XX%
 - Mean Squared Error: XX
 
+<img width="860" alt="Screenshot 2024-12-25 at 9 42 34 PM" src="https://github.com/user-attachments/assets/ea1662ee-ba89-41d6-ba7d-f1fac956d70e" />
+
+
+
+
+
+
 ## Technologies Used
 - Python 3.10.9
 - NumPy
